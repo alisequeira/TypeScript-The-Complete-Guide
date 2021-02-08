@@ -1,0 +1,14 @@
+{
+  "name": "gettingstarted",
+  "version": "1.0.0",
+  "description": "Getting Started with TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ali Sequeira",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
