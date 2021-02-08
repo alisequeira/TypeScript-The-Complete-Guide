@@ -28,3 +28,12 @@ let point: { x: number; y: number } = {
     x: 10,
     y: 20
 }
+
+//Function
+/*
+    (i: number): provide a annotation for the differences values
+    => void: list out the difference values expect to this function to return
+ */
+const logNumber: (i: number) => void = (i: number) => {
+    console.log(i)
+}
