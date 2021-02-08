@@ -8,3 +8,23 @@ let nothing: undefined = undefined;
 //built in Objects
 
 let now: Date = new Date();
+
+//Array
+let colors: string[] = ['red', 'green', 'blue'];
+let myNumbers: number[] = [1, 2, 3];
+let truths: boolean[] = [true, false, true];
+
+//Classes
+class Car {
+
+}
+//We're saying the variable car is only ever going
+//to refer to an instance of a car we can then place
+let car: Car = new Car();
+
+//Object literal
+
+let point: { x: number; y: number } = {
+    x: 10,
+    y: 20
+}
