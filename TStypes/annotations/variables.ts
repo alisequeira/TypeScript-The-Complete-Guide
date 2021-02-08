@@ -55,3 +55,13 @@ for (let i = 0; i < word.length; i++) {
         foundWord = true;
     }
 }
+
+//3) Variable whose type cannot be inferred correctly
+let number = [-10, -1, 12];
+let numberAboveZero: boolean | number = false;
+
+for (let i = 0; i < number.length; i++) {
+    if (number[i] > 0) {
+        numberAboveZero = number[i];
+    }
+}
