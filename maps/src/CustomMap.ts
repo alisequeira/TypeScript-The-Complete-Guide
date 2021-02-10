@@ -1,5 +1,14 @@
 import { User } from './User'; //import the class to use it as type
 import { Company } from './Company';
+
+//Instruction to every other class
+//on how can be an argument to  'addMarket'
+interface mappable {
+    location: {
+        lat: number;
+        lng: number;
+    };
+}
 export class CustomMap {
     private googleMap: google.maps.Map;
 
@@ -13,15 +22,13 @@ export class CustomMap {
         });
     }
 
-    addUserMarker(user: User): void {
+    addMarker(mappable: mappable): void {
         new google.maps.Marker({
             map: this.googleMap,
             position: {
-                lat: user.location.lat,
-                lng: user.location.lng
+                lat: mappable.location.lat,
+                lng: mappable.location.lng
             }
         });
     }
-
-    addCompanyMarker(company: Company): void { }
 }
