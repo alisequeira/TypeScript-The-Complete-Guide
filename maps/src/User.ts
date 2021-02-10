@@ -1,5 +1,5 @@
-import faker, { fake } from 'faker';
-class User {
+import faker from 'faker';
+export class User {
     name: string;
     location: {
         lat: number;
