@@ -1,5 +1,11 @@
+import { mappable } from './CustomMap';
+/*
+    using implement we're telling TS that we want to make
+    sure that a instance of User satisfies the property required 
+    by mappable interface
+ */
 import faker from 'faker';
-export class User {
+export class User implements mappable {
     name: string;
     location: {
         lat: number;
@@ -11,5 +17,9 @@ export class User {
             lat: parseFloat(faker.address.latitude()),
             lng: parseFloat(faker.address.latitude())
         }
+    }
+
+    markerContent(): string {
+        return `User Name: ${this.name}`;
     }
 }

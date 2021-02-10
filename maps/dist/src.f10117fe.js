@@ -116197,6 +116197,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.User = void 0;
+/*
+    using implement we're telling TS that we want to make
+    sure that a instance of User satisfies the property required
+    by mappable interface
+ */
 
 var faker_1 = __importDefault(require("faker"));
 
@@ -116210,6 +116215,10 @@ function () {
       lng: parseFloat(faker_1.default.address.latitude())
     };
   }
+
+  User.prototype.markerContent = function () {
+    return "User Name: " + this.name;
+  };
 
   return User;
 }();
@@ -116242,6 +116251,10 @@ function () {
       lng: parseFloat(faker_1.default.address.longitude())
     };
   }
+
+  Company.prototype.markerContent = function () {
+    return "\n        <div>\n            <h1>Company Name: " + this.companyName + "</h1>\n            <h3> Catchphrase: " + this.catchPhrase + " </h3>\n        </div>\n        ";
+  };
 
   return Company;
 }();
@@ -116280,7 +116293,7 @@ function () {
     });
     marker.addListener('click', function () {
       var infoWindow = new google.maps.InfoWindow({
-        content: 'Hi there!'
+        content: mappable.markerContent()
       });
       infoWindow.open(_this.googleMap, marker);
     });
