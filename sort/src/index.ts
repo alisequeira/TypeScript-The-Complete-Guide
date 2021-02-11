@@ -1,11 +1,7 @@
-class Sorter {
-    constructor(public collection: number[]) { }
+import { Sorter } from './Sorted';
+import { NumberCollection } from './NumberCollection';
 
-    sort(): void {
-
-    }
-}
-
-const sorter = new Sorter([10, 3, -5, 0]);
-sorter.sort();
-console.log(sorter.collection)
+const numberCollection = new NumberCollection([10, 3, -5, 0]);
+const sorter = new Sorter(numberCollection);
+sorter.sort()
+console.log(numberCollection.data)
