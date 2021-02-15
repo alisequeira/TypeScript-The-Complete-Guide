@@ -8,12 +8,19 @@ const matches = fs.readFileSync('football.csv', {
         return row.split(',');
     });
 
+//Enum -> enumeration    
+enum MatchResult {
+    HomeWin = 'H',
+    AwayWin = 'A',
+    Draw = 'D'
+}
+
 let manUnitedWin = 0;
 
 for (let match of matches) {
     if (match[1] === 'Man United' && match[5] === "H") {
         manUnitedWin++;
-    } else if (match[1] === "Man United" && match[5] === "A") {
+    } else if (match[2] === "Man United" && match[5] === "A") {
         manUnitedWin++;
     }
 }
