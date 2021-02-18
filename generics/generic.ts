@@ -48,3 +48,15 @@ function printAnything<T>(arr: T[]): void {
 }
 
 printAnything<string>(['a', 'b', 'c']);
+
+//Generics Constraints It's going to limit the type that we can pass in for T
+interface printable {
+    print(): void;
+}
+
+
+function printHouseOrCars<T extends printable>(arr: T[]): void {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].print();
+    }
+}
