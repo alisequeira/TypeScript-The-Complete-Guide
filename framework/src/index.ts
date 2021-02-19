@@ -3,7 +3,7 @@ import { User } from './models/User';
 const user = new User({ name: 'Ali', age: 22 });
 
 user.on('change', () => {
-
+    console.log('change number 1');
 });
 
-console.log(user)
+user.trigger('change');
