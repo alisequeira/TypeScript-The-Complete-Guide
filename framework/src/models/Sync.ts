@@ -1,14 +1,16 @@
 import axios, { AxiosPromise, AxiosResponse } from 'axios'//AxiosResponse, AxiosResponse are types
-import { userProps } from './User'
 
-export class Sync {
+interface HasId {
+    id: number;
+}
+export class Sync<T extends HasId> {
     constructor(public rootURL: string) { }
 
     fetch(id: number): AxiosPromise {
         return axios.get(`${this.rootURL}/${id}`);
     }
 
-    save(data: userProps): AxiosPromise {
+    save(data: T): AxiosPromise {
         const { id } = data;
 
         if (id) {
