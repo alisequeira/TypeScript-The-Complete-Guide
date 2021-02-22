@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios'; //AxiosResponse is a type
+import { Eventing } from './Eventing'
 
 //The Question mark means that the property it's optional
 //Now says in order for and object to satisfy this interface it can have a name it can have a name or an age
@@ -9,7 +10,7 @@ interface userProps {
     age?: number
 }
 export class User {
-
+    public events: Eventing = new Eventing();
     constructor(private data: userProps) { }
 
     get(propName: string): (string | number) {
