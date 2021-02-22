@@ -14,17 +14,6 @@ export class User {
     public events: Eventing = new Eventing();
     public sync: Sync<userProps> = new Sync<userProps>(ROOT_URL);
 
-    constructor(private data: userProps) { }
-
-    get(propName: string): (string | number) {
-        return this.data[propName];
-    }
-
-    set(update: userProps): void {
-        //Overwrite all the properties from this.data with the values of update
-        Object.assign(this.data, update);
-    }
-
 
 
 
