@@ -2,8 +2,10 @@
 export class Attributes<T> {
     constructor(private data: T) { }
 
-    get(propName: string): string | number {
-        return this.data[propName];
+    //Generic Constrain in a function
+    //type of K is going to be only a key of userProps type
+    get<K extends keyof T>(key: K): T[K] {
+        return this.data[key];
     }
 
     set(update: T): void {
