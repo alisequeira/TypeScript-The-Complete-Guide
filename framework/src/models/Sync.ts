@@ -1,7 +1,7 @@
 import axios, { AxiosPromise, AxiosResponse } from 'axios'//AxiosResponse, AxiosResponse are types
 
 interface HasId {
-    id: number;
+    id?: number;
 }
 export class Sync<T extends HasId> {
     constructor(public rootURL: string) { }

@@ -12,7 +12,8 @@ export interface userProps {
 const ROOT_URL = 'http://localhost:3000/users'
 export class User {
     public events: Eventing = new Eventing();
-    public sync: Sync<userProps> = new Sync<userProps>(ROOT_URL)
+    public sync: Sync<userProps> = new Sync<userProps>(ROOT_URL);
+
     constructor(private data: userProps) { }
 
     get(propName: string): (string | number) {
