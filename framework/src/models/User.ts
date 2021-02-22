@@ -25,4 +25,9 @@ export class User {
     constructor(attrs: userProps) {
         this.attributes = new Attributes<userProps>(attrs);
     }
+
+    get on() {
+        //Return a reference to the on event
+        return this.events.on;
+    }
 }
