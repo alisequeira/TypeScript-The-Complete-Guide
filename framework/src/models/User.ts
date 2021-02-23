@@ -2,7 +2,7 @@ import { Model } from './Model';
 import { Attributes } from './Attributes';
 import { ApiSync } from './ApiSync';
 import { Eventing } from './Eventing';
-
+import { Collection } from './Collection';
 
 //The Question mark means that the property it's optional
 //Now says in order for and object to satisfy this interface it can have a name it can have a name or an age
@@ -28,5 +28,9 @@ export class User extends Model<userProps> {
             new ApiSync<userProps>(ROOT_URL)
 
         );
+    }
+
+    static buildUserCollection(): Collection<User, userProps> {
+        return new Collection<User, userProps>(ROOT_URL, (json: userProps) => User.buildUser(json));
     }
 }
