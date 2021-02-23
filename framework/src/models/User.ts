@@ -1,4 +1,7 @@
 import { Model } from './Model';
+import { Attributes } from './Attributes';
+import { ApiSync } from './ApiSync';
+import { Eventing } from './Eventing';
 
 
 //The Question mark means that the property it's optional
@@ -12,5 +15,16 @@ export interface userProps {
 
 const ROOT_URL = 'http://localhost:3000/users'
 export class User extends Model<userProps> {
+    /*
+        Anytime we want to create a user we'll call
+        static buildUser user and   passing attrs properties
+    */
+    static buildUser(attrs: userProps): User {
+        return new User(
+            new Attributes<userProps>(attrs),
+            new Eventing(),
+            new ApiSync<userProps>(ROOT_URL)
 
+        );
+    }
 }
