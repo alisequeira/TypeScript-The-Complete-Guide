@@ -24,17 +24,11 @@ export class Model<T extends HasId>{
     constructor(private attributes: ModelAttributes<T>, private events: Events, private sync: Sync<T>) { }
 
 
-    get on() {
-        //Return a reference to the on event
-        return this.events.on;
-    }
-    get trigger() {
-        return this.events.trigger;
-    }
+    //Return a reference 
+    on = this.events.on;
+    trigger = this.events.trigger;
+    get = this.attributes.get;
 
-    get get() {
-        return this.attributes.get;
-    }
 
     set(update: T): void {
         this.attributes.set(update);
