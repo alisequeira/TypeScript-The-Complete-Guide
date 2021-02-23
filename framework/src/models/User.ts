@@ -19,6 +19,8 @@ export class User extends Model<userProps> {
         Anytime we want to create a user we'll call
         static buildUser user and   passing attrs properties
     */
+    //Using composition. Creating a compose object
+    // through a static class method
     static buildUser(attrs: userProps): User {
         return new User(
             new Attributes<userProps>(attrs),
