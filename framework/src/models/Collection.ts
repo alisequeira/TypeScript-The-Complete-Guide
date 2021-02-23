@@ -1,12 +1,12 @@
 import axios, { AxiosResponse } from 'axios'
-import { User, userProps } from './User';
+import { User } from './User';
 import { Eventing } from './Eventing';
 
-export class Collection {
-    models: User[] = [];
+export class Collection<T, K> {
+    models: T[] = [];
     events: Eventing = new Eventing();
 
-    constructor(public root_URL: string) { }
+    constructor(public root_URL: string, public deserialize: (json: K) => T) { }
 
     get on() {
         return this.events.on;
@@ -19,9 +19,8 @@ export class Collection {
     fetch(): void {
         axios.get(this.root_URL)
             .then((response: AxiosResponse) => {
-                response.data.forEach((value: userProps) => {
-                    const user = User.buildUser(value);
-                    this.models.push(user);
+                response.data.forEach((value: K) => {
+                    this.models.push(this.deserialize(value));
                 });
                 this.trigger('change')
             });
