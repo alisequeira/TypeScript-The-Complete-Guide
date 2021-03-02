@@ -11,6 +11,10 @@ exports.controller = void 0;
 require("reflect-metadata");
 var appRouter_1 = require("../../appRouter");
 var MetadataKeys_1 = require("../MetadataKeys");
+function bodyValidator(keys) {
+    return function (req, res, next) {
+    };
+}
 function controller(routerPrefix) {
     return function (target) {
         var router = appRouter_1.AppRouter.getInstance();
@@ -18,7 +22,7 @@ function controller(routerPrefix) {
             var routeHandler = target.prototype[key];
             var path = Reflect.getMetadata(MetadataKeys_1.MetadataKeys.path, target.prototype, key);
             var method = Reflect.getMetadata(MetadataKeys_1.MetadataKeys.method, target.prototype, key);
-            var middlewares = Reflect.getMetadata(MetadataKeys_1.MetadataKeys.middleware, target, key) || [];
+            var middlewares = Reflect.getMetadata(MetadataKeys_1.MetadataKeys.middleware, target.prototype, key) || [];
             if (path) {
                 router[method].apply(router, __spreadArrays(["" + routerPrefix + path], middlewares, [routeHandler]));
             }
