@@ -1,7 +1,7 @@
-import { Todo, fetchTodosActions, ActionsTypes } from '../actions/';
+import { Todo, Action, ActionsTypes } from '../actions/';
 
 
-export const todosReducer = (state: Todo[] = [], action: fetchTodosActions) => {
+export const todosReducer = (state: Todo[] = [], action: Action) => {
     switch (action.type) {
         case ActionsTypes.fetchTodos:
             return action.payload;
