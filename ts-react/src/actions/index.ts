@@ -10,13 +10,21 @@ interface Todo {
     complete: boolean
 }
 
+interface fetchTodosActions {
+    type: ActionsTypes.fetchTodos;
+    payload: Todo[];
+}
 
 
 export const fetchTodos = () => {
     return async (dispatch: Dispatch) => {
         const response = await axios.get<Todo[]>(url);
 
-        dispatch({
+
+        //This generic type right here does is make sure 
+        //that you are always passing an object with
+        //The correct types in properties 
+        dispatch<fetchTodosActions>({
             type: ActionsTypes.fetchTodos,
             payload: response.data
         });
