@@ -1,3 +1,4 @@
 export enum ActionsTypes {
-    fetchTodos
+    fetchTodos,
+    deleteTodo
 }

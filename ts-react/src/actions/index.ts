@@ -15,6 +15,10 @@ export interface fetchTodosActions {
     payload: Todo[];
 }
 
+export interface deleteTodoAction {
+    type: ActionsTypes.deleteTodo,
+    payload: number;
+}
 
 export const fetchTodos = () => {
     return async (dispatch: Dispatch) => {
@@ -30,3 +34,10 @@ export const fetchTodos = () => {
         });
     };
 };
+
+export const deleteTodo = (id: number): deleteTodoAction => {
+    return {
+        type: ActionsTypes.deleteTodo,
+        payload: id
+    }
+}
