@@ -4,13 +4,13 @@ import { ActionsTypes } from './types';
 
 const url = 'https://jsonplaceholder.typicode.com/todos';
 
-interface Todo {
+export interface Todo {
     id: number,
     title: string,
     complete: boolean
 }
 
-interface fetchTodosActions {
+export interface fetchTodosActions {
     type: ActionsTypes.fetchTodos;
     payload: Todo[];
 }
